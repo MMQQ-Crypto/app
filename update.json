@@ -1,9 +1,9 @@
 {
   "packageName": "cn.shicun.archive",
-  "versionName": "1.1.14",
-  "versionCode": 19,
-  "apkFile": "shicun-android-1.1.14.apk",
+  "versionName": "1.1.15",
+  "versionCode": 20,
+  "apkFile": "shicun-android-1.1.15.apk",
   "size": 70370,
-  "sha256": "e672069e437dcb0ad461c47b5474f5b22ec13aea66392c88e94d8656df4b6ab1",
-  "notes": "## 拾存 1.1.14\n\n- 顶部分类顺序调整为：图片、文档、文字、混合。\n- 保留原有文件夹、标签、资料归属、按键震动及更新功能。\n\n直接覆盖安装即可保留资料，请不要卸载旧版。\n"
+  "sha256": "7fb4528d5e434bc24929220432633cb07c4b8343370315af97f5999698479552",
+  "notes": "## 拾存 1.1.15\n\n- 互换混合与文字的位置，顶部顺序为：图片、文档、混合、文字。\n- 保留原资料、文件夹、标签、按键震动和更新功能。\n\n直接覆盖安装即可保留资料，请不要卸载旧版。\n"
 }
