@@ -1,0 +1,6 @@
+{
+  "repository": "MMQQ-Crypto/app",
+  "tagPrefix": "token-atlas-v",
+  "manifestAsset": "token-atlas-update.json",
+  "appId": "local.tokenatlas.desktop"
+}
