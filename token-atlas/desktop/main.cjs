@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, dialog, Menu, session, clipboard, shell } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog, Menu, session, clipboard, shell, net } = require('electron');
 const fs = require('node:fs/promises');
 const path = require('node:path');
 const { pathToFileURL } = require('node:url');
@@ -38,7 +38,7 @@ app.whenReady().then(async () => {
   try { const stored = JSON.parse(await fs.readFile(settingsFile(), 'utf8')); settings = { ...settings, ...stored }; } catch {}
   captureStore=new CaptureStore(app.getPath('userData'));await captureStore.load();
   captureServer=new CaptureServer(captureStore,()=>win?.webContents.send('capture:updated'));
-  updater=new Updater({version:app.getVersion(),directory:path.join(app.getPath('userData'),'updates'),portableFile:process.env.PORTABLE_EXECUTABLE_FILE,onChange:state=>win?.webContents.send('update:changed',state),quit:()=>app.quit()});
+  updater=new Updater({version:app.getVersion(),directory:path.join(app.getPath('userData'),'updates'),portableFile:process.env.PORTABLE_EXECUTABLE_FILE,fetchImpl:(url,options)=>net.fetch(url,options),onChange:state=>win?.webContents.send('update:changed',state),quit:()=>app.quit()});
   worker = new Worker(path.join(__dirname, 'scan-worker.cjs'));
   worker.on('error', () => { /* Pending requests surface the error in the UI. */ });
   Menu.setApplicationMenu(null);
